@@ -35,3 +35,5 @@ Delete stack:
 ``` bash
 aws cloudformation delete-stack --stack-name Terraform-State-Backend-Resources --profile my_account
 ```
+
+Or edit and use [`create-stack.sh`](./create-stack.sh) and [validate-stack](./validate-stack.sh).
