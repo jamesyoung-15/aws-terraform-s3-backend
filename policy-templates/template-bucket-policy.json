@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Sid": "AllowGetObject",
+        "Principal": {
+            "AWS": "*"
+        },
+        "Effect": "Allow",
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:ListBucket"
+        ],
+        "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
+        "Condition": {
+            "StringEquals": {
+                "aws:PrincipalOrgID": [
+                    "o-aa111bb222/ou-grw8-xi841rzl"
+                ]
+            }
+        }
+    }]
+}
