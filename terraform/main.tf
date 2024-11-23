@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "s3_policy" {
     }
     effect    = "Allow"
     actions   = ["s3:GetObject", "s3:PutObject"]
-    resources = [aws_s3_bucket.s3_state_bucket.arn]
+    resources = ["${aws_s3_bucket.s3_state_bucket.arn}"]
     condition {
       test     = "StringEquals"
       values   = ["${data.aws_organizations_organization.caller_org.id}"]
@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "dynamodb_policy" {
     }
     effect    = "Allow"
     actions   = ["dynamodb:DescribeTable", "dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem"]
-    resources = []
+    resources = ["${aws_dynamodb_table.lock_table.arn}"]
     condition {
       test     = "StringEquals"
       values   = ["${data.aws_organizations_organization.caller_org.id}"]
