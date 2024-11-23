@@ -56,7 +56,7 @@ resource "aws_s3_bucket_public_access_block" "s3_block_public_access" {
 
 # server side encryption for the s3 bucket
 resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
-  bucket = aws_s3_bucket.mybucket.id
+  bucket = aws_s3_bucket.s3_state_bucket.id
   rule {
     apply_server_side_encryption_by_default {
       sse_algorithm     = "AES256"
